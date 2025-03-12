@@ -18,6 +18,8 @@ app.use(
     allowedHeaders: "Content-Type, Authorization",
   })
 );
+
+app.use(cors({ origin: "https://trimmex.vercel.app" }));
 app.options("*", cors());
 app.use(express.json());
 app.use("/api/orders", OrderRoute);
