@@ -1,10 +1,16 @@
 const express = require("express");
 const db = require("./config/db");
 const OrderRoute = require("./routes/OrdersRoutes");
+const UserRoute = require("./routes/UsersRoutes");
 
 const app = express();
+const PORT = 8000;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
 app.use(express.json());
 app.use("/api/orders", OrderRoute);
+app.use("/api/users", UserRoute);
 
 db()
   .then(() => console.log("Connected to MongoDB"))
