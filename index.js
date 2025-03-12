@@ -11,13 +11,6 @@ const PORT = 8000;
 //   console.log(`Server running on http://localhost:${PORT}`);
 // });
 app.use(bodyParser.json());
-app.use(
-  cors({
-    origin: "*", // Allow all origins (or replace with frontend URL)
-    methods: "GET, POST, PUT, DELETE, OPTIONS",
-    allowedHeaders: "Content-Type, Authorization",
-  })
-);
 
 const corsOptions = {
   // Replace with your domain
