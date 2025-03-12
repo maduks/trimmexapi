@@ -24,8 +24,8 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use("/api/orders", OrderRoute);
-app.use("/api/users", UserRoute);
+app.use("/api/orders", cors(), OrderRoute);
+app.use("/api/users", cors(), UserRoute);
 
 db()
   .then(() => console.log("Connected to MongoDB"))
