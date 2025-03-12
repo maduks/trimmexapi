@@ -1,8 +1,11 @@
 const express = require("express");
 const db = require("./config/db");
 const OrderRoute = require("./routes/OrdersRoutes");
-const UserRoute = require("./routes/UsersRoutes");
-
+const UserRoute = require("./routes UsersRoutes");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
+app.use(cors());
 const app = express();
 const PORT = 8000;
 app.listen(PORT, () => {
