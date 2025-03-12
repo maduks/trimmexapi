@@ -12,7 +12,7 @@ const PORT = 8000;
 // });
 app.use(bodyParser.json());
 
-app.use(cors());
+app.options("*", cors());
 app.use(express.json());
 app.use("/api/orders", OrderRoute);
 app.use("/api/users", UserRoute);
