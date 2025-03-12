@@ -19,8 +19,17 @@ app.use(
   })
 );
 
-app.use(cors({ origin: "https://trimmex.vercel.app" }));
-app.options("*", cors());
+const corsOptions = {
+  // Replace with your domain
+  origin: "https://trimmex.vercel.app",
+  methods: "GET, HEAD, PUT, PATCH, POST, DELETE",
+
+  // Enable this if you need to
+  // send cookies or HTTP authentication
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/api/orders", OrderRoute);
 app.use("/api/users", UserRoute);
