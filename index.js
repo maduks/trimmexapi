@@ -22,7 +22,17 @@ const corsOptions = {
   credentials: true,
   optionsSuccessStatus: 204,
 };
+
 app.use(cors(corsOptions));
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://trimmex.vercel.app"); // update to match the domain you will make the request from
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
 app.use(express.json());
 app.use("/api/orders", cors(), OrderRoute);
 app.use("/api/users", cors(), UserRoute);
